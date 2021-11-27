@@ -38,3 +38,20 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+  deploy:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Deploying to Heroku
+        # More details available at:
+        # https://github.com/akhileshns/heroku-deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "isira-blog-app"
+          heroku_email: "isirasen96@gmail.com"
+          healthcheck: "https://isira-blog-app.herokuapp.com/healthcheck"
+          rollbackonhealthcheckfailed: true
