@@ -1,8 +1,9 @@
 # App dependencies
 fastapi~=0.70.0
-uvicorn~=0.15.0
+SQLAlchemy~=1.4.27
+uvicorn~=0.15.0 # Used for running the application on Heroku
 
 # Testing dependencies
 pytest~=6.2.5
 pytest-cov~=3.0.0
-requests~=2.26.0
+requests~=2.26.0 # Required by FastAPI's TestClient.

@@ -1,6 +1,12 @@
 from fastapi import FastAPI, status
 
+from src.apis.blog_post_apis import blog_post_router
+from src.schemas import Base, engine
+
 app = FastAPI()
+app.include_router(blog_post_router)
+
+Base.metadata.create_all(bind=engine)
 
 
 @app.get('/')
