@@ -1,0 +1,8 @@
+# App dependencies
+fastapi~=0.70.0
+uvicorn~=0.15.0
+
+# Testing dependencies
+pytest~=6.2.5
+pytest-cov~=3.0.0
+requests~=2.26.0
